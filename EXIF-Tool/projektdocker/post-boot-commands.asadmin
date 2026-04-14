@@ -1,0 +1,11 @@
+# Admin Passwort setzen
+change-admin-password --domain_name domain1 --user admin --passwordfile /opt/payara/passwordFile
+
+# Secure Admin aktivieren
+enable-secure-admin
+
+# JDBC Connection Pool erstellen
+create-jdbc-connection-pool --datasourceclassname org.postgresql.ds.PGSimpleDataSource --restype javax.sql.DataSource --property user=myuser:password=ASP11916:DatabaseName=mydb:ServerName=postgres:PortNumber=5432 PostgresPool
+
+# JDBC Resource erstellen
+create-jdbc-resource --connectionpoolid PostgresPool jdbc/postgressql
